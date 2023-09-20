@@ -20,8 +20,13 @@ from nasha import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
+    
     path("patient/", include("patient.urls")),
     path("__reload__/", include("django_browser_reload.urls")),
-    path('testing', views.testing, name='testing')
+    path('testing', views.testing, name='testing'),
+
+    path('login', views.login_view, name='login'),
+    path("logout", views.logout_view, name="logout"),
+    path("register", views.register_view, name="register"),
     
 ]
