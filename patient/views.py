@@ -5,54 +5,30 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.models import User
+from django.shortcuts import render, redirect
+from django.contrib.auth import authenticate, login
+# Create your views here.
 
+def login_view(request):
+    if request.method == "POST":
 
-def patient(request):
-    if request.method=='POST':
-        username = request.POST.get('name')
-        password = request.POST.get('password')
-        user = authenticate(username=username, password=password)
+        # Attempt to sign user in
+        username = request.POST["username"]
+        password = request.POST["password"]
+        user = authenticate(request, username=username, password=password)
+        print(username, password, user)
+        # Check if authentication successful
         if user is not None:
-            login(request,user)
-            request.session['sid'] = username
-            if request.user.is_doctor or request.user.is_superuser:
-                messages.error(request, "Login not permitted")
-                logout(request)
-            return redirect('/dashboard/patient')
-        else:
-            messages.error(request, "Incorrect Credentials")
-    return render(request, 'login-patient.html')
-
-
-def admin(request):
-    if request.method=='POST':
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-        user = authenticate(username=username, password=password)
-        if user is not None:
-            login(request,user)
-            if request.user.is_superuser:
-                return redirect('/dashboard/admin')
+            login(request, user)
+            # check if user is superuser
+            
+            if user.is_superuser:
+                return redirect('admin')
             else:
-                messages.error(request, "Login not permitted")
-                logout(request)
+                return redirect('patient')
         else:
-            messages.error(request, "Incorrect Credentials")
-    return render(request, 'login-admin.html')
-
-
-def medicalcen(request):
-    if request.method=='POST':
-            username = request.POST.get('name')
-            password = request.POST.get('password')
-            user = authenticate(username=username, password=password)
-            if user is not None:
-                login(request,user)
-                if request.user.is_staff and not request.user.is_superuser:
-                    return redirect('/dashboard/medicalcen')
-                else:
-                    messages.error(request, "Login not permitted")
-                    logout(request)
-            else:
-                messages.error(request, "Incorrect Credentials")
-    return render(request, 'login-medicalcen.html')
+            messages.error(request, 'Invalid username and/or password.')
+            return redirect('login')
+    else:
+        return render(request, "login/login.html")
+    
