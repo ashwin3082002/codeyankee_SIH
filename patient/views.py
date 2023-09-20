@@ -62,5 +62,5 @@ def register(request):
     
 
 
-    def land(request):
-        return render(request, 'index.html')
+def land(request):
+    return render(request, 'index.html')
