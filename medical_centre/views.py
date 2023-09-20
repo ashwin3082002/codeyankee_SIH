@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from database.models import patient_info
 
 # Create your views here.
@@ -35,6 +35,6 @@ def patient_add(request):
         )
         patient_info_add.save()
 
-        return render(request, 'medical/dash.html')
+        return redirect('hospital_dashboard')
 
     return render(request, 'medical/create_patient.html')
