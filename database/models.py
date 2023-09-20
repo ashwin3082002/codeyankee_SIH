@@ -15,5 +15,5 @@ class patient_info(models.Model):
     sex = models.CharField(max_length=50)
     phone = models.CharField(max_length=50)
     email = models.CharField(max_length=50)
-    medical_history = models.CharField(max_length=50)
-    about = models.CharField(max_length=50)
+    medical_history = models.TextField()
+    about = models.TextField()

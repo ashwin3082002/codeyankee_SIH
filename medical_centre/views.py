@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from database.models import patient_info
 
 # Create your views here.
 def hosp_dash(request):
@@ -17,8 +18,23 @@ def patient_add(request):
         type_of_addiction = request.POST.get('type_of_addiction')
         medications_taken_prior = request.POST.get('medications_taken_prior')
 
+        medical_history = {"addiction_period":addiction_period, "addicted_drugs":addicted_drugs, "type_of_addiction":type_of_addiction, "medications_taken_prior":medications_taken_prior}
+
+
         about = request.POST.get('about')
 
-        print(first_name,last_name,age,sex,phone,email,addiction_period,addicted_drugs,type_of_addiction,medications_taken_prior,about)
+        patient_info_add = patient_info(
+            f_name = first_name,
+            l_name = last_name,
+            age = age,
+            sex = sex,
+            phone = phone,
+            email = email,
+            medical_history = str(medical_history),
+            about = about
+        )
+        patient_info_add.save()
+
+        return render(request, 'medical/dash.html')
 
     return render(request, 'medical/create_patient.html')
