@@ -27,7 +27,6 @@ def login_view(request):
             except:
                 messages.error(request, 'Invalid username and/or password.')
                 return redirect('register')
-            # check if user is superuser
             
         else:
             messages.error(request, 'Invalid username and/or password.')
