@@ -7,3 +7,13 @@ class user_roles(models.Model):
     
     def __str__(self):
         return self.username
+    
+class patient_info(models.Model):
+    f_name = models.CharField(max_length=50)
+    l_name = models.CharField(max_length=50)
+    age = models.CharField(max_length=50)
+    sex = models.CharField(max_length=50)
+    phone = models.CharField(max_length=50)
+    email = models.CharField(max_length=50)
+    medical_history = models.CharField(max_length=50)
+    about = models.CharField(max_length=50)
