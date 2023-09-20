@@ -47,10 +47,11 @@ def register(request):
     if request.method == "POST":
             username = request.POST["username"]
             password=request.POST["password"]
+            print(username, password)
+
             try:
                 user = User.objects.create_user(username, password)
                 user.save()           
-
 
             except:
                 messages.error(request, '"Username already taken"')
