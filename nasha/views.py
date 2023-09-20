@@ -5,4 +5,4 @@ def index(request):
 
 
 def testing(request):
-    return render(request, 'register.html')
+    return render(request, 'medical/create_patient.html')
