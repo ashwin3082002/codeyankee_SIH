@@ -20,18 +20,20 @@ def login_view(request):
         print(username, password, user)
         # Check if authentication successful
         if user is not None:
-            login(request, user)
+            try:
+                login(request, user)
+                return redirect('index')
+            
+            except:
+                messages.error(request, 'Invalid username and/or password.')
+                return redirect('register')
             # check if user is superuser
             
-            if user.is_superuser:
-                return redirect('admin')
-            else:
-                return redirect('login')
         else:
             messages.error(request, 'Invalid username and/or password.')
             return redirect('login')
     else:
-        return render(request, "login/login.html")
+        return render(request, "login.html")
     
 
 
@@ -56,9 +58,9 @@ def register(request):
             messages.success(request, 'Patient registered successfully!')
             return redirect('land')
     else:
-            return render(request, "login/register.html")
+            return render(request, "register.html")
     
 
 
     def land(request):
-        return render(request, 'patient/index.html')
+        return render(request, 'index.html')
