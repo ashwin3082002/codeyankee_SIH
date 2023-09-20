@@ -6,16 +6,19 @@
 			<div class="rounded-t bg-white mb-0 px-6 py-6">
 				<div class="text-center flex justify-between">
 					<h6 class="text-blueGray-700 text-xl font-bold">Medical Center: Create Patient</h6>
+					<a href="{% url "hospital_dashboard" %}">
 					<button
 						class="bg-pink-500 text-white active:bg-pink-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
 						type="button"
 					>
 						Back
 					</button>
+				</a>
 				</div>
 			</div>
 			<div class="flex-auto px-4 lg:px-10 py-10 pt-0">
-				<form>
+				<form method="POST" action="{% url "patient_create" %}">
+					{% csrf_token %}
 					<h6 class="text-blueGray-400 text-sm mt-3 mb-6 font-bold uppercase">Patient Information</h6>
 					<div class="flex flex-wrap">
 						<div class="w-full lg:w-6/12 px-4">
@@ -25,6 +28,7 @@
 									type="text"
 									class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
 									value="Mithun"
+									name = "first_name"
 								/>
 							</div>
 						</div>
@@ -35,6 +39,7 @@
 									type="text"
 									class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
 									value="Raj"
+									name = "last_name"
 								/>
 							</div>
 						</div>
@@ -45,6 +50,7 @@
 									type="text"
 									class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
 									value="22"
+									name = "age"
 								/>
 							</div>
 						</div>
@@ -55,6 +61,7 @@
 									type="text"
 									class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
 									value="Male"
+									name = "sex"
 								/>
 							</div>
 						</div>
@@ -65,6 +72,7 @@
 									type="text"
 									class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
 									value="+911234567890"
+									name = "phone_number"
 								/>
 							</div>
 						</div>
@@ -75,6 +83,7 @@
 									type="email"
 									class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
 									value="jesse@example.com"
+									name = "email"
 								/>
 							</div>
 						</div>
@@ -91,6 +100,7 @@
 									type="text"
 									class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
 									value="4 months"
+									name = "addiction_period"
 								/>
 							</div>
 						</div>
@@ -98,9 +108,10 @@
 							<div class="relative w-full mb-3">
 								<label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password"> Addicted Drugs </label>
 								<input
-									type="email"
+									type="text"
 									class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
 									value="Paracetamol"
+									name = "addicted_drugs"
 								/>
 							</div>
 						</div>
@@ -111,6 +122,7 @@
 									type="text"
 									class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
 									value="Choci Choci"
+									name = "type_of_addiction"
 								/>
 							</div>
 						</div>
@@ -121,7 +133,9 @@
 									type="text"
 									class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
 									value="None"
+									name = "medications_taken_prior"
 								/>
+		
 							</div>
 						</div>
 					</div>
@@ -137,11 +151,18 @@
 									type="text"
 									class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
 									rows="4"
+									name = "about"
 								>
 Write a detailed info about the patient that is needed to be documented.</textarea>
 							</div>
 						</div>
 					</div>
+					<button
+						class="bg-pink-500 text-white active:bg-pink-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+						type="submit"
+					>
+						Create Patient
+					</button>
 				</form>
 			</div>
 		</div>
