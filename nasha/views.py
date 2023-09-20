@@ -33,6 +33,17 @@ def logout_view(request):
     return redirect('index')
 
 def register_view(request):
+    if request.method == "POST":
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        role = request.POST.get('role')
+        print(role)
+        if role == "admin":
+            user = User.objects.create_user(username=username, password=password)
+            user.save()
+            user_role_obj = user_roles(username=username, role=role)
+            user_role_obj.save()
+            return redirect('login')
     return render(request, 'register.html')
 
 
