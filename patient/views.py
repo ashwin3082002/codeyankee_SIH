@@ -56,7 +56,7 @@ def register(request):
                 messages.error(request, '"Username already taken"')
                 return redirect('register')
             messages.success(request, 'Patient registered successfully!')
-            return redirect('land')
+            return redirect('login')
     else:
             return render(request, "register.html")
     
