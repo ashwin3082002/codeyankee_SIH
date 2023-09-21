@@ -15,11 +15,12 @@ def login_view(request):
         password = request.POST.get('password')
         user = authenticate(request, username=username, password=password)
         if user is not None:
-            print("hello")
+            
             search_details = user_roles.objects.filter(username=username)
-            if search_details == "admin":
+            if search_details[0].role == "admin":
+                
                 login(request, user)
-                return redirect('index')
+                return redirect('hospital_dashboard')
             # login(request, user)
             return redirect('login')
         else:
@@ -48,4 +49,4 @@ def register_view(request):
 
 
 def testing(request):
-    return render(request, 'medical/import_data.html')
+    return render(request, 'medical/view_patient.html')
