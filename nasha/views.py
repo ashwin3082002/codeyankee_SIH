@@ -49,4 +49,4 @@ def register_view(request):
 
 
 def testing(request):
-    return render(request, 'medical/import_data.html')
+    return render(request, 'medical/view_patient.html')
