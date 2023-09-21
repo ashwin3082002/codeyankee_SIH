@@ -15,9 +15,10 @@ def login_view(request):
         password = request.POST.get('password')
         user = authenticate(request, username=username, password=password)
         if user is not None:
-            print("hello")
+            
             search_details = user_roles.objects.filter(username=username)
-            if search_details == "admin":
+            if search_details[0].role == "admin":
+                print("hello")
                 login(request, user)
                 return redirect('hospital_dashboard')
             # login(request, user)
