@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'django_browser_reload',
     'patient',
     'database',
+    'medical_centre',
 ]
 
 TAILWIND_APP_NAME = 'theme'
