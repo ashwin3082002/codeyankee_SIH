@@ -19,7 +19,7 @@ def login_view(request):
             search_details = user_roles.objects.filter(username=username)
             if search_details == "admin":
                 login(request, user)
-                return redirect('index')
+                return redirect('hospital_dashboard')
             # login(request, user)
             return redirect('login')
         else:
