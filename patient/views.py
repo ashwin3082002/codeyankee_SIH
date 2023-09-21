@@ -7,7 +7,7 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
-from django.db import IntegrityError
+import gradio,openai
 # Create your views here.
 
 def login_view(request):
@@ -64,3 +64,27 @@ def register(request):
 
 def land(request):
     return render(request, 'index.html')
+
+
+def chatbot(request):
+    
+    openai.api_key = "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"
+
+    messages = [{"role": "system", "content": "You are a licensed Drug Counselor"}]
+
+
+def CustomChatGPT(user_input):
+    messages.append({"role": "user", "content": user_input})
+    response = openai.ChatCompletion.create(
+        model = "gpt-3.5-turbo",
+        messages = messages,
+        max_tokens=130,
+        
+    )
+    ChatGPT_reply = response["choices"][0]["message"]["content"]
+    messages.append({"role": "assistant", "content": ChatGPT_reply})
+    return ChatGPT_reply
+
+demo = gradio.Interface(fn=CustomChatGPT, inputs = "text", outputs = "text", title = "Assesment Bot")
+
+demo.launch(share=True)
