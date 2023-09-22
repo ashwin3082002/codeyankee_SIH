@@ -49,4 +49,4 @@ def register_view(request):
 
 
 def testing(request):
-    return render(request, 'medical/view_patient.html')
+    return render(request, 'patient/dash.html')
