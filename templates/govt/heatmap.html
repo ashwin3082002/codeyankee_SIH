@@ -1,0 +1,209 @@
+{% extends "layout.html" %}
+{% load static %}
+
+{% block body %}
+    <script src="https://www.amcharts.com/lib/4/core.js"></script>
+    <script src="https://www.amcharts.com/lib/4/maps.js"></script>
+    <script src="https://www.amcharts.com/lib/4/geodata/india2019High.js"></script>
+    <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+    <style>body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+      }
+      
+      #chartdiv {
+        width: 100%;
+        height: 500px
+      }
+        </style>     
+        
+        <script>
+            // Themes begin
+am4core.useTheme(am4themes_animated);
+// Themes end
+
+ // Create map instance
+var chart = am4core.create("chartdiv", am4maps.MapChart);
+
+// Set map definition
+chart.geodata = am4geodata_india2019High;
+
+
+
+// Create map polygon series
+var polygonSeries = chart.series.push(new am4maps.MapPolygonSeries());
+
+//Set min/max fill color for each area
+polygonSeries.heatRules.push({
+  property: "fill",
+  target: polygonSeries.mapPolygons.template,
+  min: chart.colors.getIndex(1).brighten(1),
+  max: chart.colors.getIndex(1).brighten(-0.3)
+});
+
+// Make map load polygon data (state shapes and names) from GeoJSON
+polygonSeries.useGeodata = true;
+
+// Set heatmap values for each state
+polygonSeries.data = [
+  {
+    id: "IN-JK",
+    value: 300
+  },
+  {
+    id: "IN-MH",
+    value: 1000
+  },
+  {
+    id: "IN-UP",
+    value: 700
+  },
+  {
+    id: "US-AR",
+    value: 800
+  },
+  {
+    id: "IN-RJ",
+    value: 200
+  },
+  {
+    id: "IN-AP",
+    value: 600
+  },
+  {
+    id: "IN-MP",
+    value: 2000
+  },
+  {
+    id: "IN-TN",
+    value: 1200
+  },
+  {
+    id: "IN-JH",
+    value: 1600
+  },
+  {
+    id: "IN-WB",
+    value: 2800
+  },
+  {
+    id: "IN-GJ",
+    value: 3200
+  },
+  {
+    id: "IN-BR",
+    value: 4200
+  },
+  {
+    id: "IN-TG",
+    value: 1500
+  },
+  {
+    id: "IN-GA",
+    value: 3200
+  },
+  {
+    id: "IN-DN",
+    value: 1400
+  },
+  {
+    id: "IN-DL",
+    value: 6000
+  },
+  {
+    id: "IN-DD",
+    value: 1020
+  },
+  {
+    id: "IN-CH",
+    value: 1300
+  },
+  {
+    id: "IN-CT",
+    value: 2700
+  },
+  {
+    id: "IN-AS",
+    value: 1200
+  },
+  {
+    id: "IN-AR",
+    value: 2400
+  },
+  {
+    id: "IN-AN",
+    value: 900
+  },
+  {
+    id: "IN-KA",
+    value: 3500
+  },
+  {
+    id: "IN-KL",
+    value: 1990
+  },
+  {
+    id: "IN-OR",
+    value: 4000
+  },
+  {
+    id: "IN-SK",
+    value: 800
+  },
+  {
+    id: "IN-HP",
+    value: 3000
+  },
+  {
+    id: "IN-PB",
+    value: 5000
+  },
+  {
+    id: "IN-HR",
+    value: 4500
+  },
+  {
+    id: "IN-UT",
+    value: 3200
+  },
+  {
+    id: "IN-LK",
+    value: 100
+  },
+  {
+    id: "IN-MN",
+    value: 300
+  },
+  {
+    id: "IN-TR",
+    value: 200
+  },
+  {
+    id: "IN-MZ",
+    value: 700
+  },
+  {
+    id: "IN-NL",
+    value: 500
+  },
+  {
+    id: "IN-ML",
+    value: 900
+  }
+];
+
+
+
+// Configure series tooltip
+var polygonTemplate = polygonSeries.mapPolygons.template;
+polygonTemplate.tooltipText = "{name}: {value}";
+polygonTemplate.nonScalingStroke = true;
+polygonTemplate.strokeWidth = 0.5;
+
+// Create hover state and set alternative fill color
+var hs = polygonTemplate.states.create("hover");
+hs.properties.fill = am4core.color("#3c5bdc");
+    
+            </script>
+
+    <div id="chartdiv"></div>
+{% endblock body %}

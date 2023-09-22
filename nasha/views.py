@@ -70,4 +70,4 @@ def register_view(request):
 
 
 def testing(request):
-    return render(request, 'govt/dash.html')
+    return render(request, 'govt/heatmap.html')
