@@ -23,6 +23,7 @@ urlpatterns = [
     
     path("patient/", include("patient.urls")),
     path("hospital/", include("medical_centre.urls")),
+    path('gov/', include("gov.urls")),
     path("__reload__/", include("django_browser_reload.urls")),
     path('testing', views.testing, name='testing'),
 

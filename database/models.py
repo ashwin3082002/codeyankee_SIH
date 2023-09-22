@@ -17,3 +17,6 @@ class patient_info(models.Model):
     email = models.CharField(max_length=50)
     medical_history = models.TextField()
     about = models.TextField()
+
+    def __str__(self):
+        return self.f_name + " " + self.l_name
