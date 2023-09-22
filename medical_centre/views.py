@@ -1,5 +1,6 @@
 from django.shortcuts import render,redirect
 from database.models import patient_info
+from django.contrib import messages
 
 # Create your views here.
 def hosp_dash(request):
@@ -34,7 +35,17 @@ def patient_add(request):
             about = about
         )
         patient_info_add.save()
-
+        messages.success(request, 'Patient added successfully')
         return redirect('hospital_dashboard')
 
     return render(request, 'medical/create_patient.html')
+
+def view_patient(request):
+    patient_info_obj = patient_info.objects.all()
+    context = {
+        "patient_info_obj":patient_info_obj
+    }
+    return render(request, 'medical/view_patient.html', context)
+
+def bulk_add(request):
+    return render(request, 'medical/import_data.html')

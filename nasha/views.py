@@ -31,6 +31,7 @@ def login_view(request):
 
 def logout_view(request):
     logout(request)
+    messages.success(request, 'You have been logged out.')
     return redirect('index')
 
 def register_view(request):
@@ -44,7 +45,9 @@ def register_view(request):
             user.save()
             user_role_obj = user_roles(username=username, role=role)
             user_role_obj.save()
-            return redirect('login')
+            
+        messages.success(request, 'Account created successfully')
+        return redirect('login')
     return render(request, 'register.html')
 
 
