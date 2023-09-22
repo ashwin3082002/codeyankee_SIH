@@ -39,7 +39,7 @@
 				/>
                 
 			</div> -->
-            <div class="relative w-full max-w-md sm:-ml-2">
+            {% comment %} <div class="relative w-full max-w-md sm:-ml-2">
 				<a href="{% url 'patient_create' %}">
                 <button
                     class="inline-flex px-5 py-3 text-purple-600 hover:text-purple-700 focus:text-purple-700 hover:bg-purple-100 focus:bg-purple-100 border border-purple-600 rounded-md mb-3"
@@ -67,7 +67,7 @@
                     <!-- add svg here if need -->
                     View Appointments
                 </button>
-            </div>
+            </div> {% endcomment %}
 
 
 			<div class="flex flex-shrink-0 items-center ml-auto">
@@ -89,8 +89,8 @@
 		<main class="p-6 sm:p-10 space-y-6">
 			<div class="flex flex-col space-y-6 md:space-y-0 md:flex-row justify-between">
 				<div class="mr-6">
-					<h1 class="text-4xl font-semibold mb-2">Medical Center</h1>
-					<h2 class="text-gray-600 ml-0.5">Admin Dashboard</h2>
+					<h1 class="text-4xl font-semibold mb-2">Patient</h1>
+					<h2 class="text-gray-600 ml-0.5">Your Dashboard</h2>
 				</div>
 				{% comment %}
 				<div class="flex flex-wrap items-start justify-end -mb-3">
@@ -129,8 +129,8 @@
 						</svg>
 					</div>
 					<div>
-						<span class="block text-2xl font-bold">2</span>
-						<span class="block text-gray-500">Patients</span>
+						<span class="block text-2xl font-bold">Name</span>
+						<span class="block text-gray-500">Ashok</span>
 					</div>
 				</div>
 				<div class="flex items-center p-8 bg-white shadow rounded-lg">
@@ -140,8 +140,8 @@
 						</svg>
 					</div>
 					<div>
-						<span class="block text-2xl font-bold">10</span>
-						<span class="block text-gray-500">Free from Drugs <br />(this week)</span>
+						<span class="block text-2xl font-bold">20 days</span>
+						<span class="block text-gray-500">Free Day Streak</span>
 					</div>
 				</div>
 				<div class="flex items-center p-8 bg-white shadow rounded-lg">
@@ -151,9 +151,9 @@
 						</svg>
 					</div>
 					<div>
-						<span class="inline-block text-2xl font-bold">2</span>
+						<span class="inline-block text-2xl font-bold">Relapsed</span>
 						{% comment %} <span class="inline-block text-xl text-gray-500 font-semibold">(14%)</span> {% endcomment %}
-						<span class="block text-gray-500">Relapsed <br />(this week)</span>
+						<span class="block text-gray-500">No</span>
 					</div>
 				</div>
 				<div class="flex items-center p-8 bg-white shadow rounded-lg">
@@ -168,8 +168,8 @@
 						</svg>
 					</div>
 					<div>
-						<span class="block text-2xl font-bold">90%</span>
-						<span class="block text-gray-500">Attending Sessions / Forums</span>
+						<span class="block text-2xl font-bold">20/9 - Yes</span>
+						<span class="block text-gray-500">Meetup Attendance</span>
 					</div>
 				</div>
 			</section>
@@ -201,8 +201,8 @@
 						</svg>
 					</div>
 					<div>
-						<span class="block text-2xl font-bold">25</span>
-						<span class="block text-gray-500">Lections left</span>
+						<span class="block text-2xl font-bold">10</span>
+						<span class="block text-gray-500">Rehab Sessions</span>
 					</div>
 				</div>
 				<div class="flex items-center p-8 bg-white shadow rounded-lg">
@@ -212,8 +212,8 @@
 						</svg>
 					</div>
 					<div>
-						<span class="block text-2xl font-bold">139</span>
-						<span class="block text-gray-500">Hours spent on lections</span>
+						<span class="block text-2xl font-bold">240</span>
+						<span class="block text-gray-500">Hours spent on Rehab</span>
 					</div>
 				</div>
 				<div class="row-span-3 bg-white shadow rounded-lg">
@@ -301,7 +301,7 @@
 					</div>
 				</div>
 				<div class="flex flex-col row-span-3 bg-white shadow rounded-lg">
-					<div class="px-6 py-5 font-semibold border-b border-gray-100">AI Chatbot</div>
+					<div class="px-6 py-5 font-semibold border-b border-gray-100">Chat with AI</div>
 					<div class="p-4 flex-grow">
 						<div
 							class="flex items-center justify-center h-fit px-4 py-2 text-gray-400 text-3xl font-semibold bg-gray-100 border-2 border-gray-200 rounded-md"
