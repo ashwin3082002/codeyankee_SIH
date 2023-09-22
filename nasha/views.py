@@ -52,4 +52,4 @@ def register_view(request):
 
 
 def testing(request):
-    return render(request, 'patient/dash.html')
+    return render(request, 'govt/dash.html')
