@@ -56,6 +56,15 @@
         <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-bs-toggle="offcanvas">
           <span class="mdi mdi-menu"></span>
         </button>
+        <a href="{% url "heatmap" %}">
+          <button
+              class="btn btn-outline-danger btn-sm"
+              style="margin: 10px; position: absolute; right: 0; top: 0;"
+          >
+              <span class="sr-only">View India Heatmap</span>
+              
+          </button>
+      </a>
         <a href="{% url "logout" %}">
             <button
                 class="btn btn-outline-danger btn-sm"

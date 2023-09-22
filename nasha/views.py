@@ -70,4 +70,4 @@ def register_view(request):
 
 
 def testing(request):
-    return render(request, 'govt/heatmap.html')
+    return render(request, 'gov/heatmap.html')
