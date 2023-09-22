@@ -15,15 +15,14 @@
 	</aside> -->
 	<div class="flex-grow text-gray-800">
 		<header class="flex items-center h-20 px-6 sm:px-10 bg-white">
-			<a href="{% url "logout" %}">
 			<button
 				class="block sm:hidden relative flex-shrink-0 p-2 mr-2 text-gray-600 hover:bg-gray-100 hover:text-gray-800 focus:bg-gray-100 focus:text-gray-800 rounded-full"
 			>
-				<span class="sr-only">Signout</span>
+				<span class="sr-only">Menu</span>
 				<svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" />
 				</svg>
-			</button></a>
+			</button>
 			<!-- <div class="relative w-full max-w-md sm:-ml-2">
 				<svg aria-hidden="true" viewBox="0 0 20 20" fill="currentColor" class="absolute h-6 w-6 mt-2.5 ml-2 text-gray-400">
 					<path
@@ -40,7 +39,7 @@
 				/>
                 
 			</div> -->
-            <div class="relative w-full max-w-2xl sm:-ml-2">
+            {% comment %} <div class="relative w-full max-w-md sm:-ml-2">
 				<a href="{% url 'patient_create' %}">
                 <button
                     class="inline-flex px-5 py-3 text-purple-600 hover:text-purple-700 focus:text-purple-700 hover:bg-purple-100 focus:bg-purple-100 border border-purple-600 rounded-md mb-3"
@@ -48,23 +47,14 @@
                     <!-- add svg here if need -->
                     Add Patient
                 </button></a>
-				<a href="{% url "bulk_add" %}">
                 <button
                     class="ml-3 inline-flex px-5 py-3 text-purple-600 hover:text-purple-700 focus:text-purple-700 hover:bg-purple-100 focus:bg-purple-100 border border-purple-600 rounded-md mb-3"
                 >
                     <!-- add svg here if need -->
                     Upload Existing Patients
                 </button>
-				</a>
-				<a href="{% url "view_patient" %}">
-				<button
-                    class="ml-3 inline-flex px-5 py-3 text-purple-600 hover:text-purple-700 focus:text-purple-700 hover:bg-purple-100 focus:bg-purple-100 border border-purple-600 rounded-md mb-3"
-                >
-                    <!-- add svg here if need -->
-                    View Patients
-                </button></a>
             </div>
-            <div class="relative w-full max-w-md sm:-ml-2">
+            <div class="relative w-full max-w-xl sm:-ml-2">
                 <button
                     class="inline-flex px-5 py-3 text-purple-600 hover:text-purple-700 focus:text-purple-700 hover:bg-purple-100 focus:bg-purple-100 border border-purple-600 rounded-md mb-3"
                 >
@@ -77,12 +67,11 @@
                     <!-- add svg here if need -->
                     View Appointments
                 </button>
-            </div>
+            </div> {% endcomment %}
 
 
 			<div class="flex flex-shrink-0 items-center ml-auto">
 				<div class="border-l pl-3 ml-3 space-x-1">
-					<a href="{% url "logout" %}">
 					<button class="relative p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-600 focus:bg-gray-100 focus:text-gray-600 rounded-full">
 						<span class="sr-only">Log out</span>
 						<svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
@@ -93,15 +82,15 @@
 								d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
 							/>
 						</svg>
-					</button></a>
+					</button>
 				</div>
 			</div>
 		</header>
 		<main class="p-6 sm:p-10 space-y-6">
 			<div class="flex flex-col space-y-6 md:space-y-0 md:flex-row justify-between">
 				<div class="mr-6">
-					<h1 class="text-4xl font-semibold mb-2">Medical Center</h1>
-					<h2 class="text-gray-600 ml-0.5">Admin Dashboard</h2>
+					<h1 class="text-4xl font-semibold mb-2">Patient</h1>
+					<h2 class="text-gray-600 ml-0.5">Your Dashboard</h2>
 				</div>
 				{% comment %}
 				<div class="flex flex-wrap items-start justify-end -mb-3">
@@ -140,8 +129,8 @@
 						</svg>
 					</div>
 					<div>
-						<span class="block text-2xl font-bold">2</span>
-						<span class="block text-gray-500">Patients</span>
+						<span class="block text-2xl font-bold">Name</span>
+						<span class="block text-gray-500">Ashok</span>
 					</div>
 				</div>
 				<div class="flex items-center p-8 bg-white shadow rounded-lg">
@@ -151,8 +140,8 @@
 						</svg>
 					</div>
 					<div>
-						<span class="block text-2xl font-bold">10</span>
-						<span class="block text-gray-500">Free from Drugs <br />(this week)</span>
+						<span class="block text-2xl font-bold">20 days</span>
+						<span class="block text-gray-500">Free Day Streak</span>
 					</div>
 				</div>
 				<div class="flex items-center p-8 bg-white shadow rounded-lg">
@@ -162,9 +151,9 @@
 						</svg>
 					</div>
 					<div>
-						<span class="inline-block text-2xl font-bold">2</span>
+						<span class="inline-block text-2xl font-bold">Relapsed</span>
 						{% comment %} <span class="inline-block text-xl text-gray-500 font-semibold">(14%)</span> {% endcomment %}
-						<span class="block text-gray-500">Relapsed <br />(this week)</span>
+						<span class="block text-gray-500">No</span>
 					</div>
 				</div>
 				<div class="flex items-center p-8 bg-white shadow rounded-lg">
@@ -179,8 +168,8 @@
 						</svg>
 					</div>
 					<div>
-						<span class="block text-2xl font-bold">90%</span>
-						<span class="block text-gray-500">Attending Sessions / Forums</span>
+						<span class="block text-2xl font-bold">20/9 - Yes</span>
+						<span class="block text-gray-500">Meetup Attendance</span>
 					</div>
 				</div>
 			</section>
@@ -212,8 +201,8 @@
 						</svg>
 					</div>
 					<div>
-						<span class="block text-2xl font-bold">25</span>
-						<span class="block text-gray-500">Lectures left</span>
+						<span class="block text-2xl font-bold">10</span>
+						<span class="block text-gray-500">Rehab Sessions</span>
 					</div>
 				</div>
 				<div class="flex items-center p-8 bg-white shadow rounded-lg">
@@ -223,8 +212,8 @@
 						</svg>
 					</div>
 					<div>
-						<span class="block text-2xl font-bold">139</span>
-						<span class="block text-gray-500">Hours spent on Lectures</span>
+						<span class="block text-2xl font-bold">240</span>
+						<span class="block text-gray-500">Hours spent on Rehab</span>
 					</div>
 				</div>
 				<div class="row-span-3 bg-white shadow rounded-lg">
@@ -311,7 +300,24 @@
 						</ul>
 					</div>
 				</div>
-				
+				<div class="flex flex-col row-span-3 bg-white shadow rounded-lg">
+					<div class="px-6 py-5 font-semibold border-b border-gray-100">Chat with AI</div>
+					<div class="p-4 flex-grow">
+						<div
+							class="flex items-center justify-center h-fit px-4 py-2 text-gray-400 text-3xl font-semibold bg-gray-100 border-2 border-gray-200 rounded-md"
+						>
+							<img src="https://engage.sinch.com/sites/default/files/image/2023-07/chatbots-vs-conversational-AI-01-01.png" alt="some img">
+						</div>
+						<div
+							class="flex items-center justify-center mt-4 px-2 py-6 rounded-md"
+						>
+						<a href="https://c7e2bcdd37c8b0cf98.gradio.live" class="ml-3 inline-flex px-5 py-3 text-purple-600 hover:text-purple-700 focus:text-purple-700 hover:bg-purple-100 focus:bg-purple-100 border border-purple-600 rounded-md mb-3">
+							<!-- add svg here if need -->
+							Go to chatbot
+						</a>
+						</div>
+					</div>
+				</div>
 			</section>
 		</main>
 	</div>

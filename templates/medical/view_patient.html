@@ -29,12 +29,14 @@
                             <th class="py-3 px-6 text-center">Addiction</th>
                         </tr>
                     </thead>
+                    
+                    {% for patient in patient_info_obj  %}
                     <tbody class="text-gray-600 text-sm font-light">
                         <tr class="border-b border-gray-200 hover:bg-gray-100">
                             <td class="py-3 px-6 text-left whitespace-nowrap">
                                 <div class="flex items-center">
                                     <div class="mr-2">
-                                        1
+                                        {{patient.id}}
                                     </div>
                                 </div>
                             </td>
@@ -43,105 +45,22 @@
                                     <div class="mr-2">
                                         <img class="w-6 h-6 rounded-full" src="https://randomuser.me/api/portraits/men/1.jpg"/>
                                     </div>
-                                    <span>Eshal Rosas</span>
+                                    <span>{{patient.f_name}}</span>
                                 </div>
                             </td>
                             <td class="py-3 px-6 text-center">
                                 <div class="flex items-center justify-center">
-                                    Male
+                                    {{patient.sex}}
                                 </div>
                             </td>
                             <td class="py-3 px-6 text-center">
-                                40
+                                {{patient.age}}
                             </td>
                             <td class="py-3 px-6 text-center">
                                 <span class="bg-red-200 text-red-600 py-1 px-3 rounded-full text-xs">Active</span>
                             </td>
                         </tr>
-                        <tr class="border-b border-gray-200 hover:bg-gray-100">
-                            <td class="py-3 px-6 text-left whitespace-nowrap">
-                                <div class="flex items-center">
-                                    <div class="mr-2">
-                                        2
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="py-3 px-6 text-left">
-                                <div class="flex items-center">
-                                    <div class="mr-2">
-                                        <img class="w-6 h-6 rounded-full" src="https://randomuser.me/api/portraits/men/1.jpg"/>
-                                    </div>
-                                    <span>Eshal Rosas</span>
-                                </div>
-                            </td>
-                            <td class="py-3 px-6 text-center">
-                                <div class="flex items-center justify-center">
-                                    Male
-                                </div>
-                            </td>
-                            <td class="py-3 px-6 text-center">
-                                22
-                            </td>
-                            <td class="py-3 px-6 text-center">
-                                <span class="bg-purple-200 text-purple-600 py-1 px-3 rounded-full text-xs">Rehab</span>
-                            </td>
-                        </tr><tr class="border-b border-gray-200 hover:bg-gray-100">
-                            <td class="py-3 px-6 text-left whitespace-nowrap">
-                                <div class="flex items-center">
-                                    <div class="mr-2">
-                                        3
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="py-3 px-6 text-left">
-                                <div class="flex items-center">
-                                    <div class="mr-2">
-                                        <img class="w-6 h-6 rounded-full" src="https://randomuser.me/api/portraits/men/1.jpg"/>
-                                    </div>
-                                    <span>Eshal Rosas</span>
-                                </div>
-                            </td>
-                            <td class="py-3 px-6 text-center">
-                                <div class="flex items-center justify-center">
-                                    Male
-                                </div>
-                            </td>
-                            <td class="py-3 px-6 text-center">
-                                55
-                            </td>
-                            <td class="py-3 px-6 text-center">
-                                <span class="bg-purple-200 text-purple-600 py-1 px-3 rounded-full text-xs">Rehab</span>
-                            </td>
-                        </tr><tr class="border-b border-gray-200 hover:bg-gray-100">
-                            <td class="py-3 px-6 text-left whitespace-nowrap">
-                                <div class="flex items-center">
-                                    <div class="mr-2">
-                                        4
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="py-3 px-6 text-left">
-                                <div class="flex items-center">
-                                    <div class="mr-2">
-                                        <img class="w-6 h-6 rounded-full" src="https://randomuser.me/api/portraits/men/1.jpg"/>
-                                    </div>
-                                    <span>Eshal Rosas</span>
-                                </div>
-                            </td>
-                            <td class="py-3 px-6 text-center">
-                                <div class="flex items-center justify-center">
-                                    Male
-                                </div>
-                            </td>
-                            <td class="py-3 px-6 text-center">
-                                32
-                            </td>
-                            <td class="py-3 px-6 text-center">
-                                <span class="bg-green-200 text-green-600 py-1 px-3 rounded-full text-xs">Free</span>
-                            </td>
-                        </tr>
-
-                        
+                        {% endfor %}
                     </tbody>
                 </table>
             </div>
