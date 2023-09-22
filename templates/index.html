@@ -6,7 +6,7 @@
     <nav class="bg-white border-gray-200 py-2.5 dark:bg-gray-900">
         <div class="flex flex-wrap items-center justify-between max-w-screen-xl px-4 mx-auto">
             <p href="#" class="flex items-center">
-                <img src="./images/logo.svg" class="h-6 mr-3 sm:h-9" alt="Landwind Logo" />
+                <img src="{% static "nashamukthi-logo.png" %}" class="h-6 mr-3 sm:h-9" alt="Landwind Logo" />
                 <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Nasha Mukthi</span>
             </p>
             <div class="flex items-center lg:order-2">
@@ -51,9 +51,9 @@
             <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">Government Resources for Addiction Recovery</p>
 
         </div>
-        <div class="hidden lg:mt-0 lg:col-span-5 lg:flex">
+        {% comment %} <div class="hidden lg:mt-0 lg:col-span-5 lg:flex">
             <img src="./images/hero.png" alt="hero image">
-        </div>                
+        </div>                 {% endcomment %}
     </div>
 </section>
 <!-- End block -->
@@ -151,11 +151,11 @@
                 </ul>
                 <p class="mb-8 font-light lg:text-xl"> Users can easily access a wealth of information, eliminating the need to search multiple sources for assistance and guidance.</p>
             </div>
-            <img class="hidden w-full mb-4 rounded-lg lg:mb-0 lg:flex" src="./images/feature-1.png" alt="dashboard feature image">
+            {% comment %} <img class="hidden w-full mb-4 rounded-lg lg:mb-0 lg:flex" src="./images/feature-1.png" alt="dashboard feature image"> {% endcomment %}
         </div>
         <!-- Row -->
         <div class="items-center gap-8 lg:grid lg:grid-cols-2 xl:gap-16"> 
-            <img class="hidden w-full mb-4 rounded-lg lg:mb-0 lg:flex" src="./images/feature-2.png" alt="feature image 2">
+            {% comment %} <img class="hidden w-full mb-4 rounded-lg lg:mb-0 lg:flex" src="./images/feature-2.png" alt="feature image 2"> {% endcomment %}
             <div class="text-gray-500 sm:text-lg dark:text-gray-400">
                 <h2 class="mb-4 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">Our Features</h2>
                 <p class="mb-8 font-light lg:text-xl">We have developed this user-friendly website to serve as a comprehensive solution for individuals seeking assistance with clarifying their questions and locating nearby rehabilitation centers.</p>
