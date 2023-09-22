@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from database.models import patient_info
 from django.contrib import messages
+import csv,io
 
 # Create your views here.
 def hosp_dash(request):
@@ -48,4 +49,29 @@ def view_patient(request):
     return render(request, 'medical/view_patient.html', context)
 
 def bulk_add(request):
+    if request.method == "POST":
+        file = request.FILES['data']
+        if not file.name.endswith(".csv"):
+            messages.error(request, 'Please upload a csv file')
+            return redirect('bulk_add')
+        
+        data = file.read().decode("utf-8")
+        io_string = io.StringIO(data)
+        next(io_string)
+        for column in csv.reader(io_string, delimiter=',', quotechar="|"):
+            medical_history = {"addiction_period":column[6], "addicted_drugs":column[7], "type_of_addiction":column[8], "medications_taken_prior":column[9]}
+            
+            created = patient_info.objects.create(
+                f_name = column[0],
+                l_name = column[1],
+                age = column[2],
+                sex = column[3],
+                phone = column[4],
+                email = column[5],
+                medical_history = str(medical_history),
+                about = column[10]
+            )
+            created.save()
+        messages.success(request, 'Patients added successfully')
+        return redirect('hospital_dashboard')
     return render(request, 'medical/import_data.html')

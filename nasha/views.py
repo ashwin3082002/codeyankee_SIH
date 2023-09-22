@@ -21,6 +21,12 @@ def login_view(request):
                 
                 login(request, user)
                 return redirect('hospital_dashboard')
+            elif search_details[0].role == "gov":
+                login(request, user)
+                return redirect('gov_dashboard')
+            elif search_details[0].role == "patient":
+                login(request, user)
+                return redirect('patient_dashboard')
             # login(request, user)
             return redirect('login')
         else:
@@ -39,12 +45,25 @@ def register_view(request):
         username = request.POST.get('username')
         password = request.POST.get('password')
         role = request.POST.get('role')
-        print(role)
-        if role == "admin":
+
+        if role == "1":
             user = User.objects.create_user(username=username, password=password)
             user.save()
-            user_role_obj = user_roles(username=username, role=role)
+            user_role_obj = user_roles(username=username, role="gov")
             user_role_obj.save()
+
+        elif role == "2":
+            user = User.objects.create_user(username=username, password=password)
+            user.save()
+            user_role_obj = user_roles(username=username, role="admin")
+            user_role_obj.save()
+        
+        elif role == "3":
+            user = User.objects.create_user(username=username, password=password)
+            user.save()
+            user_role_obj = user_roles(username=username, role="patient")
+            user_role_obj.save()
+
             
         messages.success(request, 'Account created successfully')
         return redirect('login')
