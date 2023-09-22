@@ -13,5 +13,7 @@ from django.contrib.auth import authenticate, login
 def dash(request):
     return render(request, 'patient/dash.html')
 
+def forum(request):
+    return redirect('https://forum.nashamukthi.co/')
 
 
